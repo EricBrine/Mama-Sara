@@ -53,7 +53,7 @@ class Nutrition_Information:
 				age = self.parse_age(self.nlu_model.parse(audio_string))
 
 				if age != None:
-					print("ayyayaya")
+
 					return age
 
 			except sr.UnknownValueError:

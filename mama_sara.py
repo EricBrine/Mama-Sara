@@ -41,6 +41,7 @@ class Mama_Sara:
 	def determine_response(self, input):
 
 		print(self.nlu_model.parse(input))
+
 		parsed_input = self.nlu_model.parse(input)
 		if parsed_input["intent"]["name"] == "nutrition_information":
 
@@ -55,8 +56,8 @@ if __name__ == "__main__":
 
 	
 	mama_sara = Mama_Sara()
-	mama_sara.converse()
-	# mama_sara.determine_response("My child is four months old what should they eat?")
+	# mama_sara.converse()
+	mama_sara.determine_response("My child is four months old what should they eat?")
 
 
 
