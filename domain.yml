@@ -1,24 +1,47 @@
 %YAML 1.1
 ---
 actions:
-- utter_cheer_up
+- action_nutrition_information
+- action_query_age
 - utter_did_that_help
 - utter_goodbye
 - utter_greet
 - utter_happy
-- utter_iamabot
+- utter_supply_age
+entities:
+- months_old
+- years
+forms:
+- diagnostic_info_form
 intents:
+- nutrition_information
+- supply_age
+- thanks
+- affirm
+- stop
+- greet
 - goodbye
 - deny
-- mood_unhappy
-- greet
-- affirm
 - mood_great
-- bot_challenge
+slots:
+  age:
+    type: text
+  months_old:
+    auto_fill: false
+    type: unfeaturized
+  name:
+    type: text
+  question_domain:
+    type: categorical
+    values:
+    - nutrition
+    - health
+  requested_slot:
+    type: unfeaturized
+  years:
+    auto_fill: false
+    type: unfeaturized
 templates:
-  utter_cheer_up:
-  - image: https://i.imgur.com/nGF1K8f.jpg
-    text: 'Here is something to cheer you up:'
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
@@ -27,5 +50,5 @@ templates:
   - text: Hey! How are you?
   utter_happy:
   - text: Great, carry on!
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  utter_supply_age:
+  - text: How old is your child?

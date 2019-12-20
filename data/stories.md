@@ -4,42 +4,23 @@
 * mood_great
   - utter_happy
 
-## sad path 1
-* greet
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* affirm
-  - utter_happy
+## interactive_story_1 - Age supplied in initial intent
+* nutrition_information{"months_old": "eight"}
+    - diagnostic_info_form
+    - form{"name": "diagnostic_info_form"}
+    - slot{"months_old": "eight"}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+    - action_nutrition_information
+* thanks
 
-## sad path 2
-* greet
-  - utter_greet
-* mood_unhappy
-  - utter_cheer_up
-  - utter_did_that_help
-* deny
-  - utter_goodbye
-
-## say goodbye
-* goodbye
-  - utter_goodbye
-
-## bot challenge
-* bot_challenge
-  - utter_iamabot
-
-## interactive_story_1
-* greet
-    - utter_greet
-* mood_unhappy
-    - utter_cheer_up
-    - utter_did_that_help
-* deny
-    - utter_goodbye
-* goodbye
-    - utter_goodbye
-* greet
-    - utter_greet
-* mood_unhappy
+## interactive_story_2 - Age needs to be asked for
+* nutrition_information
+    - utter_supply_age
+* supply_age{"months_old": "seven"}
+    - diagnostic_info_form
+    - form{"name": "diagnostic_info_form"}
+    - slot{"months_old": "seven"}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+    - action_nutrition_information

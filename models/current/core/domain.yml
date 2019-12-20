@@ -1,0 +1,84 @@
+%YAML 1.1
+---
+actions:
+- action_nutrition_information
+- action_query_age
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_supply_age
+config:
+  store_entities_as_slots: true
+entities:
+- months_old
+- years
+forms:
+- diagnostic_info_form
+intents:
+- nutrition_information:
+    ignore_entities: []
+    use_entities: true
+- supply_age:
+    ignore_entities: []
+    use_entities: true
+- thanks:
+    ignore_entities: []
+    use_entities: true
+- affirm:
+    ignore_entities: []
+    use_entities: true
+- stop:
+    ignore_entities: []
+    use_entities: true
+- greet:
+    ignore_entities: []
+    use_entities: true
+- goodbye:
+    ignore_entities: []
+    use_entities: true
+- deny:
+    ignore_entities: []
+    use_entities: true
+- mood_great:
+    ignore_entities: []
+    use_entities: true
+slots:
+  age:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  months_old:
+    auto_fill: false
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  name:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  question_domain:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.CategoricalSlot
+    values:
+    - nutrition
+    - health
+  requested_slot:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  years:
+    auto_fill: false
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+templates:
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! How are you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_supply_age:
+  - text: How old is your child?
