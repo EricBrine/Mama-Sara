@@ -51,4 +51,4 @@ templates:
   utter_happy:
   - text: Great, carry on!
   utter_supply_age:
-  - text: How old is your child?
+  - text: How many months old is your child?
