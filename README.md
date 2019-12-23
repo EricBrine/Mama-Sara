@@ -32,10 +32,11 @@ Then to chat with the bot on the command line, run
 rasa shell [--debug]
 ```
 
-or... 
+or to use the voice assistant, run
 ```
 rasa run actions
 rasa run -m models --endpoints endpoints.yml
+python run.py
 ```
 ## Interactive Learning
 
