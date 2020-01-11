@@ -6,8 +6,8 @@
 
 ## interactive_story_1 - Age supplied in initial intent
 * nutrition_information{"months_old": "eight"}
-    - diagnostic_info_form
-    - form{"name": "diagnostic_info_form"}
+    - nutrition_diagnostic_info_form
+    - form{"name": "nutrition_diagnostic_info_form"}
     - slot{"months_old": "eight"}
     - form{"name": null}
     - slot{"requested_slot": null}
@@ -18,8 +18,8 @@
 * nutrition_information
     - utter_supply_age
 * supply_age{"months_old": "seven"}
-    - diagnostic_info_form
-    - form{"name": "diagnostic_info_form"}
+    - nutrition_diagnostic_info_form
+    - form{"name": "nutrition_diagnostic_info_form"}
     - slot{"months_old": "seven"}
     - form{"name": null}
     - slot{"requested_slot": null}

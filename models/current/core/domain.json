@@ -6,12 +6,17 @@
     "intent_greet",
     "intent_mood_great",
     "intent_nutrition_information",
+    "intent_out_of_scope",
     "intent_stop",
     "intent_supply_age",
     "intent_thanks",
     "entity_months_old",
     "entity_years",
     "slot_age_0",
+    "slot_entity_extractor_0",
+    "slot_entity_extractor_1",
+    "slot_feedback_value_0",
+    "slot_feedback_value_1",
     "slot_name_0",
     "slot_question_domain_0",
     "slot_question_domain_1",
@@ -30,7 +35,7 @@
     "prev_utter_greet",
     "prev_utter_happy",
     "prev_utter_supply_age",
-    "prev_diagnostic_info_form",
-    "active_form_diagnostic_info_form"
+    "prev_nutrition_diagnostic_info_form",
+    "active_form_nutrition_diagnostic_info_form"
   ]
 }

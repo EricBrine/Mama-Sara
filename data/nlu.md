@@ -60,6 +60,12 @@
 - My child is [four](months_old) months old, what should they eat?
 - What should a [eight](months_old) month old be eating?
 - what do i feed my child
+- how do i feed my child
+- how should i feed my kid
+- how should i feed my baby
+- what should i feed my baby
+- What should a [one](months_old) month old eat
+- how do i feed a [two](months_old) month old 
 
 ## intent:supply_age
 - They are [six](months_old) months old.
@@ -76,6 +82,12 @@
 - [five](months_old) months
 - [sixteen](months_old) months
 - [eighteen](months_old) months
+- [six](months_old)
+- [eight](months_old)
+- [one](months_old)
+- [four](months_old)
+- [three](months_old)
+- [ten](months_old)
 
 ## intent:thanks
 - thanks
@@ -86,3 +98,26 @@
 - thanks
 - thanks
 - thanks
+
+## lookup:months_old
+- one
+- two
+- three
+- four
+- five
+- six
+- seven
+- eight
+- nine
+- ten
+- eleven
+- twelve
+- thirteen
+- fourteen
+- fifteen
+- sixteen
+- seventeen
+- eighteen
+- nineteen
+- twenty
+- twenty one

@@ -3,6 +3,8 @@
 actions:
 - action_nutrition_information
 - action_query_age
+- action_default_fallback
+- action_default_ask_affirmation
 - utter_did_that_help
 - utter_goodbye
 - utter_greet
@@ -12,7 +14,7 @@ entities:
 - months_old
 - years
 forms:
-- diagnostic_info_form
+- nutrition_diagnostic_info_form
 intents:
 - nutrition_information
 - supply_age
@@ -23,6 +25,7 @@ intents:
 - goodbye
 - deny
 - mood_great
+- out_of_scope
 slots:
   age:
     type: text
@@ -41,6 +44,18 @@ slots:
   years:
     auto_fill: false
     type: unfeaturized
+  entity_extractor:
+    type: categorical
+    values:
+    - crfentityextractor
+    - spacyentityextractor
+  feedback_message:
+    type: unfeaturized
+  feedback_value:
+    type: categorical
+    values:
+    - positive
+    - negative
 templates:
   utter_did_that_help:
   - text: Did that help you?
@@ -52,3 +67,10 @@ templates:
   - text: Great, carry on!
   utter_supply_age:
   - text: How many months old is your child?
+  utter_default:
+  - text: Sorry, I didn't get that. Could you please rephrase?
+  - text: I didn't understand, could you rephrase that?
+  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you just said?
+  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
+  - text: I didn't quite get that, could you rephrase your message?
+  - text: Could you rephrase your message? I didn't get it, I'm sorry.

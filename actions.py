@@ -6,13 +6,36 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
 from rasa_sdk.events import SlotSet
 from rasa_sdk.events import Restarted
+from rasa_sdk.events import UserUtteranceReverted, ConversationPaused
 from utils import word_to_digits
 import json
 
 
-class MamaSaraAPI:
-    def search(self, info):
-        return "mama sara"
+class ActionDefaultFallback(Action):
+    def name(self) -> Text:
+        return "action_default_fallback"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List["Event"]:
+
+        # Fallback caused by TwoStageFallbackPolicy
+        if (
+            len(tracker.events) >= 4
+            and tracker.events[-4].get("name") == "action_default_ask_affirmation"
+        ):
+
+            dispatcher.utter_template("utter_restart_with_button", tracker)
+
+            return [Restarted()]
+
+        # Fallback caused by Core
+        else:
+            dispatcher.utter_template("utter_default", tracker)
+            return [UserUtteranceReverted()]
 
 
 class ActionNutritionInformation(Action):
@@ -62,13 +85,13 @@ def read_responses():
     return responses
 
 
-class DiagnosticInfoForm(FormAction):
-    """Example of a custom form action"""
+class NutritionDiagnosticInfoForm(FormAction):
+    """Form for resolving which response to return for a question about nutrition information"""
 
     def name(self) -> Text:
         """Unique identifier of the form"""
 
-        return "diagnostic_info_form"
+        return "nutrition_diagnostic_info_form"
 
     @staticmethod
     def required_slots(tracker: Tracker) -> List[Text]:
@@ -100,3 +123,75 @@ class DiagnosticInfoForm(FormAction):
         dispatcher.utter_message(text="One second")
         return []
 
+
+class ActionDefaultAskAffirmation(Action):
+    """Asks for an affirmation of the intent if NLU threshold is not met."""
+
+    def name(self) -> Text:
+        return "action_default_ask_affirmation"
+
+    def __init__(self) -> None:
+        import pandas as pd
+
+        # NOT IMPLEMENTED. Working on a means to resolve ambiguous input.
+        self.intent_mappings = pd.read_csv("intent_description_mapping.csv")
+        self.intent_mappings.fillna("", inplace=True)
+        print("action_default_ask_affirmation")
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List["Event"]:
+
+        intent_ranking = tracker.latest_message.get("intent_ranking", [])
+        if len(intent_ranking) > 0:
+            first_intent_names = intent_ranking[0].get("name", "")
+        else:
+            dispatcher.utter_message(text="let's restart.")
+            dispatcher.utter_message(text="ask me a question.")
+            return [Restarted()]
+
+        print("ONE")
+        # first_intent_names = [
+        #     intent.get("name", "")
+        #     for intent in intent_ranking
+        #     if intent.get("name", "") != "out_of_scope"
+        # ]
+
+        # message_title = "Sorry, I'm not sure I've understood " "you correctly. Do you mean..."
+        # print('TWO')
+        # print(first_intent_names)
+        # response = self.get_top_intent(first_intent_names)
+        # dispatcher.utter_message(text=message_title)
+        # print(response)
+        # dispatcher.utter_message(text=response)
+
+        message_title = "Could you repeat that?"
+        dispatcher.utter_message(text=message_title)
+
+        return [Restarted()]
+
+    def get_top_intent(self, intent: Text) -> Text:
+        utterance_query = self.intent_mappings.intent == intent
+
+        utterances = self.intent_mappings[utterance_query].name[0]
+
+        return utterances
+
+
+# Not currently in use.
+def get_last_utter_action(tracker):
+
+    for event in reversed(tracker.events):
+
+        if event.get('name') not in ['action_listen', None, 'utter_ask_continue']:
+            last_utter_action = event.get('name')
+            # print('found action', last_utter_action)
+            return last_utter_action
+        else :
+            # print(event.get('name'))
+            pass
+
+    return 'error! no last action found'

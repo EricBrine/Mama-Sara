@@ -1,17 +1,29 @@
 language: en
-
 pipeline:
-  - name: WhitespaceTokenizer
-  - name: CRFEntityExtractor
-  - name: EntitySynonymMapper
-  - name: CountVectorsFeaturizer
-    token_pattern: (?u)\b\w+\b
-  - name: EmbeddingIntentClassifier
-    dimensions:
-     - number
-
+- name: WhitespaceTokenizer
+- name: CRFEntityExtractor
+- name: CountVectorsFeaturizer
+  OOV_token: oov
+  token_pattern: (?u)\b\w+\b
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: EmbeddingIntentClassifier
+  epochs: 50
+  loss_type: margin
+- name: EntitySynonymMapper
 policies:
-  - name: FallbackPolicy
-  - name: MemoizationPolicy
-  - name: MappingPolicy
-  - name: FormPolicy
+- name: EmbeddingPolicy
+  max_history: 10
+  epochs: 20
+  batch_size:
+  - 32
+  - 64
+- max_history: 6
+  name: AugmentedMemoizationPolicy
+- core_threshold: 0.3
+  name: TwoStageFallbackPolicy
+  nlu_threshold: 0.8
+- name: FormPolicy
+- name: MappingPolicy

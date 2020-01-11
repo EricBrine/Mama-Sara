@@ -1,6 +1,8 @@
 %YAML 1.1
 ---
 actions:
+- action_default_ask_affirmation
+- action_default_fallback
 - action_nutrition_information
 - action_query_age
 - utter_did_that_help
@@ -14,7 +16,7 @@ entities:
 - months_old
 - years
 forms:
-- diagnostic_info_form
+- nutrition_diagnostic_info_form
 intents:
 - nutrition_information:
     ignore_entities: []
@@ -43,11 +45,32 @@ intents:
 - mood_great:
     ignore_entities: []
     use_entities: true
+- out_of_scope:
+    ignore_entities: []
+    use_entities: true
 slots:
   age:
     auto_fill: true
     initial_value: null
     type: rasa.core.slots.TextSlot
+  entity_extractor:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.CategoricalSlot
+    values:
+    - crfentityextractor
+    - spacyentityextractor
+  feedback_message:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.UnfeaturizedSlot
+  feedback_value:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.CategoricalSlot
+    values:
+    - positive
+    - negative
   months_old:
     auto_fill: false
     initial_value: null
@@ -72,6 +95,14 @@ slots:
     initial_value: null
     type: rasa.core.slots.UnfeaturizedSlot
 templates:
+  utter_default:
+  - text: Sorry, I didn't get that. Could you please rephrase?
+  - text: I didn't understand, could you rephrase that?
+  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you
+      just said?
+  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
+  - text: I didn't quite get that, could you rephrase your message?
+  - text: Could you rephrase your message? I didn't get it, I'm sorry.
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
@@ -81,4 +112,4 @@ templates:
   utter_happy:
   - text: Great, carry on!
   utter_supply_age:
-  - text: How old is your child?
+  - text: How many months old is your child?
