@@ -1,6 +1,6 @@
 # Mama Sara
 
-- Mama Sara is a virtual assistant which will provide information regarding the
+- Mama Sara is a voice-controlled virtual assistant which will provide information regarding the
  health and wellness of young children aged 0 to 2.
 
 ## Files
