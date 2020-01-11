@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25a10b0d-9055-45a9-aa13-105bbfaaa985" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mama_sara.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mama_sara.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/actions.py" beforeDir="false" afterPath="$PROJECT_DIR$/actions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/nlu.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/nlu.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stories.md" beforeDir="false" afterPath="$PROJECT_DIR$/data/stories.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/20191219-233247.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/20191220-165056.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/domain.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/core/domain.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/domain.yml" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/core/domain.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/core/metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/policy_0_FallbackPolicy/fallback_policy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/policy_1_MemoizationPolicy/featurizer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/policy_1_MemoizationPolicy/memorized_turns.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/core/policy_2_MappingPolicy/mapping_policy.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/fingerprint.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/fingerprint.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/component_1_CRFEntityExtractor.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/component_1_CRFEntityExtractor.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/component_3_CountVectorsFeaturizer.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/component_3_CountVectorsFeaturizer.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.index" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/component_4_EmbeddingIntentClassifier.ckpt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/current/nlu/metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/current/nlu/metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/policy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +26,7 @@
         <counts>
           <entry key="csv" value="1" />
           <entry key="json" value="1" />
-          <entry key="md" value="3" />
+          <entry key="md" value="4" />
           <entry key="py" value="6" />
           <entry key="yml" value="4" />
         </counts>
@@ -59,7 +34,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="Markdown" value="3" />
+          <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Python" value="6" />
           <entry key="YAML" value="4" />
@@ -68,14 +43,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="csv" value="13" />
-          <entry key="md" value="246" />
+          <entry key="md" value="420" />
           <entry key="py" value="1040" />
           <entry key="yml" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="246" />
+          <entry key="Markdown" value="420" />
           <entry key="PLAIN_TEXT" value="13" />
           <entry key="Python" value="1040" />
           <entry key="YAML" value="37" />
@@ -99,12 +74,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/nlu.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="312">
-                <caret line="97" column="8" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+                <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -146,6 +121,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="51">
+                <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -201,13 +188,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/config.yml" />
         <option value="$PROJECT_DIR$/intent_description_mapping.csv" />
         <option value="$PROJECT_DIR$/data/stories.md" />
         <option value="$PROJECT_DIR$/domain.yml" />
         <option value="$PROJECT_DIR$/actions.py" />
         <option value="$PROJECT_DIR$/data/nlu.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -240,17 +227,6 @@
               <item name="mama_sara" type="b2602c69:ProjectViewProjectNode" />
               <item name="mama_sara" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mama_sara" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mama_sara" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mama_sara" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mama_sara" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="current" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mama_sara" type="b2602c69:ProjectViewProjectNode" />
@@ -308,7 +284,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18454936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18454936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -322,7 +298,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.48433736" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.48433736" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -347,16 +323,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/endpoints.yml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="646">
-            <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/policy.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -438,7 +404,17 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="312">
-            <caret line="97" column="8" lean-forward="true" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+            <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="51">
+            <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           </first_editor>
           <second_editor />
         </state>

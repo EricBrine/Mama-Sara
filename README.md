@@ -1,5 +1,8 @@
 # Mama Sara
 
+- Mama Sara is a virtual assistant which will provide information regarding the
+ health and wellness of young children aged 0 to 2.
+
 ## Files
 - **data/nlu.md** contains training examples for the NLU model  
 - **data/stories.md** contains training stories for the Core model  
