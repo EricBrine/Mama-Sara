@@ -11,6 +11,8 @@ from utils import word_to_digits
 import json
 
 
+# Currently just restarts conversation when unsure of input.
+# Will need to provide more robust fallback response.
 class ActionDefaultFallback(Action):
     def name(self) -> Text:
         return "action_default_fallback"
@@ -38,6 +40,7 @@ class ActionDefaultFallback(Action):
             return [UserUtteranceReverted()]
 
 
+# Responds with nutrition info based on age of child derived from "months_old" entity.
 class ActionNutritionInformation(Action):
     def name(self):
         return "action_nutrition_information"
@@ -61,22 +64,6 @@ class ActionNutritionInformation(Action):
             text=return_message
         )
         return [Restarted()]
-
-
-# Ignore this
-class ActionSupplyAge(Action):
-    def name(self):
-        return "action_query_age"
-
-    def run(self, dispatcher, tracker, domain):
-
-        dispatcher.utter_message(text="here's what I found:")
-        age_in_months = tracker.get_slot('months_old')
-
-        dispatcher.utter_message(
-            text="thanks"
-        )
-        return []
 
 
 def read_responses():
@@ -124,6 +111,8 @@ class NutritionDiagnosticInfoForm(FormAction):
         return []
 
 
+# Part of two-stage fallback policy. Currently will just restart conversation.
+# Working on improving fallback response.
 class ActionDefaultAskAffirmation(Action):
     """Asks for an affirmation of the intent if NLU threshold is not met."""
 
@@ -182,6 +171,7 @@ class ActionDefaultAskAffirmation(Action):
 
 
 # Not currently in use.
+# Will return the previous action.
 def get_last_utter_action(tracker):
 
     for event in reversed(tracker.events):

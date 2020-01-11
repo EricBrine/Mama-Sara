@@ -16,11 +16,16 @@ class MamaSara:
 
         message = ""
         while message != "stop":
+
+            # Gets user input.
             message = input("What's your message?\n")
 
             print("Sending message now...")
 
+            # Sends user input to Rasa server and receives response.
             r = requests.post('http://localhost:5005/webhooks/rest/webhook', json={"sender": sender, "message": message})
+
+            # Print out response to user.
             print("Bot says, ")
             for i in r.json():
                 print(f"{i['text']}")
@@ -32,12 +37,14 @@ class MamaSara:
         audio_string = ''
         while audio_string.strip() != "stop":
 
+            # Gets user audio input.
             with sr.Microphone() as source:
                 print("Say something!")
                 audio = self.r.listen(source)
+
+            # Attempts Speech-to-Text.
             try:
                 message = self.r.recognize_sphinx(audio)
-                # message = "what should i feed my eight month old child"
                 print("Sphinx thinks you said " + message + "\n")
             except sr.UnknownValueError:
                 print("Sphinx could not understand audio")
@@ -46,9 +53,11 @@ class MamaSara:
 
             print("Sending message now...")
 
+            # Sends user input to Rasa server and receives response.
             r = requests.post('http://localhost:5005/webhooks/rest/webhook',
                               json={"sender": "test", "message": message})
 
+            # Output response.
             print("Bot says, ")
             for i in r.json():
                 print(i['text'])
@@ -69,8 +78,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
     print(args.mode)
     mama_sara = MamaSara()
+
+    # Runs method for voice-controlled virtual assistant.
     if args.mode == "speech":
         mama_sara.speech_bot()
+
+    # Runs method for text-based command line virtual assistant.
     elif args.mode == "text":
         mama_sara.text_bot()
     else:
