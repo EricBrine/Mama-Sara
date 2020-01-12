@@ -172,12 +172,12 @@ class IllnessDiagnosticInfoForm(FormAction):
                 self.from_intent(intent="deny", value=False),
             ],
             "sore_throat": [
-                self.from_entity(entity="headache"),
+                self.from_entity(entity="sore_throat"),
                 self.from_intent(intent="affirm", value=True),
                 self.from_intent(intent="deny", value=False),
             ],
             "nausea": [
-                self.from_entity(entity="headache"),
+                self.from_entity(entity="nausea"),
                 self.from_intent(intent="affirm", value=True),
                 self.from_intent(intent="deny", value=False),
             ],
