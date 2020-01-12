@@ -1,25 +1,40 @@
 %YAML 1.1
 ---
 actions:
-- action_nutrition_information
-- action_query_age
-- action_default_fallback
 - action_default_ask_affirmation
+- action_default_fallback
+- action_nutrition_information
+- action_sick_child
 - utter_did_that_help
 - utter_goodbye
 - utter_greet
 - utter_happy
+- utter_headache
+- utter_intro
 - utter_supply_age
+- utter_supply_days_sick
+- utter_ask_headache
+- utter_ask_sore_throat
+- utter_ask_nausea
+- utter_ask_days_sick
+- utter_ask_months_old
 entities:
+- days_sick
 - months_old
 - years
+- headache
+- sore_throat
+- nausea
 forms:
+- illness_diagnostic_info_form
 - nutrition_diagnostic_info_form
 intents:
-- nutrition_information
 - supply_age
-- thanks
+- sick_child
+- supply_days_sick
 - affirm
+- nutrition_information
+- thanks
 - stop
 - greet
 - goodbye
@@ -29,6 +44,30 @@ intents:
 slots:
   age:
     type: text
+  days_sick:
+    auto_fill: false
+    type: unfeaturized
+  entity_extractor:
+    type: categorical
+    values:
+    - crfentityextractor
+    - spacyentityextractor
+  feedback_message:
+    type: unfeaturized
+  feedback_value:
+    type: categorical
+    values:
+    - positive
+    - negative
+  headache:
+    auto_fill: false
+    type: unfeaturized
+  sore_throat:
+    auto_fill: false
+    type: unfeaturized
+  nausea:
+    auto_fill: false
+    type: unfeaturized
   months_old:
     auto_fill: false
     type: unfeaturized
@@ -44,19 +83,15 @@ slots:
   years:
     auto_fill: false
     type: unfeaturized
-  entity_extractor:
-    type: categorical
-    values:
-    - crfentityextractor
-    - spacyentityextractor
-  feedback_message:
-    type: unfeaturized
-  feedback_value:
-    type: categorical
-    values:
-    - positive
-    - negative
 templates:
+  utter_default:
+  - text: Sorry, I didn't get that. Could you please rephrase?
+  - text: I didn't understand, could you rephrase that?
+  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you
+      just said?
+  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
+  - text: I didn't quite get that, could you rephrase your message?
+  - text: Could you rephrase your message? I didn't get it, I'm sorry.
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
@@ -65,12 +100,21 @@ templates:
   - text: Hey! How are you?
   utter_happy:
   - text: Great, carry on!
+  utter_headache:
+  - text: Does your child have a headache?
+  utter_intro:
+  - text: Ask me a question about your child's health or nutrition
   utter_supply_age:
   - text: How many months old is your child?
-  utter_default:
-  - text: Sorry, I didn't get that. Could you please rephrase?
-  - text: I didn't understand, could you rephrase that?
-  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you just said?
-  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
-  - text: I didn't quite get that, could you rephrase your message?
-  - text: Could you rephrase your message? I didn't get it, I'm sorry.
+  utter_supply_days_sick:
+  - text: How long has your child been sick?
+  utter_ask_months_old:
+  - text: Could you tell me how many months old your child is?
+  utter_ask_days_sick:
+  - text: How many days has your child been sick?
+  utter_ask_headache:
+  - text: Does your child have a headache?
+  utter_ask_sore_throat:
+  - text: Does your child have a sore throat?
+  utter_ask_nausea:
+  - text: Is your child nauseous?

@@ -4,9 +4,13 @@ from rasa_sdk import Action
 from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
-from rasa_sdk.events import SlotSet
-from rasa_sdk.events import Restarted
-from rasa_sdk.events import UserUtteranceReverted, ConversationPaused
+from rasa_sdk.events import (
+    SlotSet,
+    UserUtteranceReverted,
+    Restarted,
+    ConversationPaused,
+    EventType,
+)
 from utils import word_to_digits
 import json
 
@@ -66,6 +70,27 @@ class ActionNutritionInformation(Action):
         return [Restarted()]
 
 
+# Responds with treatment info based on diagnostic info for ill child.
+class ActionSickChild(Action):
+    def name(self):
+        return "action_sick_child"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        # get age from slot and convert "eight" to 8
+        months_old = int(word_to_digits(tracker.get_slot('months_old')))
+        print(months_old)
+
+        days_sick = int(word_to_digits(tracker.get_slot('days_sick')))
+        print(days_sick)
+
+        dispatcher.utter_message(
+            text='treat your child'
+        )
+        return [Restarted()]
+
+
 def read_responses():
     with open("responses/responses.json", 'r') as f:
         responses = json.load(f)
@@ -107,7 +132,68 @@ class NutritionDiagnosticInfoForm(FormAction):
             after all required slots are filled"""
 
         # utter submit template
-        dispatcher.utter_message(text="One second")
+        dispatcher.utter_message(text="Thank you")
+        return []
+
+
+class IllnessDiagnosticInfoForm(FormAction):
+    """Form for resolving which response to return for a question about nutrition information"""
+
+    def name(self) -> Text:
+        """Unique identifier of the form"""
+
+        return "illness_diagnostic_info_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+
+        return [
+            "months_old",
+            "days_sick",
+            "headache",
+            "sore_throat",
+            "nausea"
+        ]
+
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+
+        return {
+            "months_old": self.from_entity(entity="months_old"),
+            "days_sick": self.from_entity(entity="days_sick"),
+            "headache": [
+                self.from_entity(entity="headache"),
+                self.from_intent(intent="affirm", value=True),
+                self.from_intent(intent="deny", value=False),
+            ],
+            "sore_throat": [
+                self.from_entity(entity="headache"),
+                self.from_intent(intent="affirm", value=True),
+                self.from_intent(intent="deny", value=False),
+            ],
+            "nausea": [
+                self.from_entity(entity="headache"),
+                self.from_intent(intent="affirm", value=True),
+                self.from_intent(intent="deny", value=False),
+            ],
+        }
+
+    def submit(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Define what the form has to do
+            after all required slots are filled"""
+
+        # utter submit template
+        dispatcher.utter_message(text="thank you")
         return []
 
 

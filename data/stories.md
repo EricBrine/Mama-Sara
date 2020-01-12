@@ -3,24 +3,25 @@
   - utter_greet
 * mood_great
   - utter_happy
-
-## interactive_story_1 - Age supplied in initial intent
-* nutrition_information{"months_old": "eight"}
-    - nutrition_diagnostic_info_form
-    - form{"name": "nutrition_diagnostic_info_form"}
-    - slot{"months_old": "eight"}
-    - form{"name": null}
-    - slot{"requested_slot": null}
-    - action_nutrition_information
-* thanks
+  
+## introduce mama sara
+* greet
+  - utter_greet
+  - utter_intro
 
 ## interactive_story_2 - Age needs to be asked for
 * nutrition_information
-    - utter_supply_age
-* supply_age{"months_old": "seven"}
     - nutrition_diagnostic_info_form
     - form{"name": "nutrition_diagnostic_info_form"}
-    - slot{"months_old": "seven"}
     - form{"name": null}
     - slot{"requested_slot": null}
     - action_nutrition_information
+    
+## sick
+* sick_child
+    - illness_diagnostic_info_form
+    - form{"name": "illness_diagnostic_info_form"}
+    - form{"name": null}
+    - action_sick_child
+
+

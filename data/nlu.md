@@ -8,7 +8,7 @@
 - yea
 - yes
 - i love that
-- bye
+- yes
 
 ## intent:deny
 - no
@@ -65,7 +65,18 @@
 - how should i feed my baby
 - what should i feed my baby
 - What should a [one](months_old) month old eat
-- how do i feed a [two](months_old) month old 
+- how do i feed a [two](months_old) month old
+
+## intent:sick_child
+- My child is sick.
+- My child has been sick for [two](days_sick) days.
+- My baby is ill.
+- My baby does not feel well.
+- What do I do if my child is sick.
+- What do I do if my baby is not well.
+- What should i do. My child is not well. I think they are sick.
+- my child is sick
+- my child is sick
 
 ## intent:supply_age
 - They are [six](months_old) months old.
@@ -88,6 +99,22 @@
 - [four](months_old)
 - [three](months_old)
 - [ten](months_old)
+- [five](months_old) months old
+- [five](months_old) months old
+
+## intent:supply_days_sick
+- They have been sick for [six](days_sick) days.
+- They are sick for [four](days_sick) days.
+- he is sick for [eight](days_sick) days.
+- she is sick for [one](days_sick) day.
+- [eight](days_sick) days sick
+- [three](days_sick) days
+- [two](days_sick) days
+- [one](days_sick) days
+- [five](days_sick) days
+- [sixteen](days_sick) days
+- [eighteen](days_sick) days
+- [two](days_sick) days
 
 ## intent:thanks
 - thanks
