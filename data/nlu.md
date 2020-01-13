@@ -75,8 +75,10 @@
 - What do I do if my child is sick.
 - What do I do if my baby is not well.
 - What should i do. My child is not well. I think they are sick.
-- my child is sick
-- my child is sick
+- My child has a [cough](symptom)
+- My child has [nausea](symptom)
+- My child has a [headache](symptom)
+- My child has a [headache](symptom) and a [cough](symptom)
 
 ## intent:supply_age
 - They are [six](months_old) months old.

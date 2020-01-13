@@ -25,6 +25,7 @@ entities:
 - headache
 - sore_throat
 - nausea
+- symptom
 forms:
 - illness_diagnostic_info_form
 - nutrition_diagnostic_info_form
@@ -80,6 +81,9 @@ slots:
     - health
   requested_slot:
     type: unfeaturized
+  symptom:
+    auto_fill: false
+    type: list
   years:
     auto_fill: false
     type: unfeaturized
@@ -118,3 +122,5 @@ templates:
   - text: Does your child have a sore throat?
   utter_ask_nausea:
   - text: Is your child nauseous?
+  utter_ask_symptom:
+  - text: What symptoms is your child experiencing?
