@@ -6,8 +6,10 @@
     "24": "Foods that are thick enough to stay on the spoon give more energy to the child"
   },
   "illness_information": {
-    "coughing": "Give your baby more fluids than usual like milk and water.",
-    "nausea": "Make sure your baby gets more rest to treat nausea.",
-    "headache": "Make sure your baby gets more rest to treat the headache."
+    "cough": "For coughing, give your baby more fluids than usual like milk and water.",
+    "nausea": "For nausea, make sure your baby gets more rest to treat nausea.",
+    "headache": "For headaches, make sure your baby gets more rest to treat the headache.",
+    "vomit": "For vomitting, give fluids in small amounts. If vomitting continues, please seek a doctor.",
+    "sore throat": "For a sore throat, give plenty of fluids and feed warm soup."
   }
 }
