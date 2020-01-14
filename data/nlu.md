@@ -76,9 +76,15 @@
 - What do I do if my baby is not well.
 - What should i do. My child is not well. I think they are sick.
 - My child has a [cough](symptom)
+- My child is [coughing](symptom:cough)
 - My child has [nausea](symptom)
+- My child is [nauseous](symptom:nausea)
 - My child has a [headache](symptom)
 - My child has a [headache](symptom) and a [cough](symptom)
+- My child has a [headache](symptom) and is [coughing](symptom:cough)
+- [headache](symptom) and [coughing](symptom:cough)
+- My child has a [sore throat](symptom) and [vomitting](symptom:vomit)
+- [sore throat](symptom) and [vomitting](symptom:vomit)
 
 ## intent:supply_age
 - They are [six](months_old) months old.
