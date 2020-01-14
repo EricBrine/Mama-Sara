@@ -85,8 +85,17 @@ class ActionSickChild(Action):
         days_sick = int(word_to_digits(tracker.get_slot('days_sick')))
         print(days_sick)
 
+        symptoms = tracker.get_slot('symptom')
+        print(symptoms)
+        if (type(symptoms) == list):
+            return_message = ""
+            for symptom in symptoms:
+                return_message += responses["illness_information"][symptom] + " "
+        else:
+            return_message = responses["illness_information"][symptoms]
+
         dispatcher.utter_message(
-            text='treat your child'
+            text=return_message
         )
         return [Restarted()]
 
@@ -151,9 +160,7 @@ class IllnessDiagnosticInfoForm(FormAction):
         return [
             "months_old",
             "days_sick",
-            "headache",
-            "sore_throat",
-            "nausea"
+            "symptom"
         ]
 
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
@@ -166,21 +173,7 @@ class IllnessDiagnosticInfoForm(FormAction):
         return {
             "months_old": self.from_entity(entity="months_old"),
             "days_sick": self.from_entity(entity="days_sick"),
-            "headache": [
-                self.from_entity(entity="headache"),
-                self.from_intent(intent="affirm", value=True),
-                self.from_intent(intent="deny", value=False),
-            ],
-            "sore_throat": [
-                self.from_entity(entity="sore_throat"),
-                self.from_intent(intent="affirm", value=True),
-                self.from_intent(intent="deny", value=False),
-            ],
-            "nausea": [
-                self.from_entity(entity="nausea"),
-                self.from_intent(intent="affirm", value=True),
-                self.from_intent(intent="deny", value=False),
-            ],
+            "symptom": self.from_entity(entity="symptom")
         }
 
     def submit(
