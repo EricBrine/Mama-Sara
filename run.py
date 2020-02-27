@@ -34,11 +34,17 @@ class MamaSara:
 
     def speech_bot(self):
 
+        mic = sr.Microphone()
+
+        with mic as source:
+            self.r.adjust_for_ambient_noise(source)
+
         audio_string = ''
-        while audio_string.strip() != "stop":
+        while audio_string.strip() != "bye":
 
             # Gets user audio input.
-            with sr.Microphone() as source:
+            with mic as source:
+                self.r.adjust_for_ambient_noise(source)
                 print("Say something!")
                 audio = self.r.listen(source)
 
