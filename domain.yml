@@ -7,6 +7,7 @@ actions:
 - action_nutrition_information
 - action_sick_child
 - action_breastfeeding_frequency
+- action_keep_child_healthy
 - utter_more_information
 - utter_did_that_help
 - utter_goodbye

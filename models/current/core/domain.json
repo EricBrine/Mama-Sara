@@ -40,6 +40,7 @@
     "prev_action_back",
     "prev_action_breastfeeding_frequency",
     "prev_action_chat_restart",
+    "prev_action_keep_child_healthy",
     "prev_action_nutrition_information",
     "prev_action_sick_child",
     "prev_utter_ask_days_sick",

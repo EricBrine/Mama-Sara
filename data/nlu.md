@@ -131,6 +131,10 @@
 - How much are babies breastfed?
 - How often should a baby be breastfed?
 
+## intent:keep_child_healthy
+- How do I keep my child healthy?
+- How do I stop my child from getting sick?
+
 ## intent:thanks
 - thanks
 - thank you
