@@ -2,6 +2,7 @@
 ---
 actions:
 - action_breastfeeding_frequency
+- action_chat_restart
 - action_default_ask_affirmation
 - action_default_fallback
 - action_nutrition_information
@@ -104,6 +105,10 @@ slots:
     auto_fill: false
     initial_value: null
     type: rasa.core.slots.UnfeaturizedSlot
+  iteration_num:
+    auto_fill: true
+    initial_value: '0'
+    type: rasa.core.slots.TextSlot
   months_old:
     auto_fill: false
     initial_value: null

@@ -198,12 +198,21 @@ class ActionBreastfeedingFrequency(Action):
     def run(self, dispatcher, tracker, domain):
         responses = read_responses()
 
-        return_message = responses["breastfeeding_frequency"][0]
+        curr_iteration = tracker.get_slot("iteration_num")
+
+        if int(curr_iteration) >= 4:
+            dispatcher.utter_message(text="That's all I have on the subject.")
+            return [Restarted()]
+
+        return_message = responses["breastfeeding_frequency"][int(curr_iteration)]
 
         dispatcher.utter_message(
             text=return_message
         )
-        return [Restarted()]
+
+
+        return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
+
 
 
 # Part of two-stage fallback policy. Currently will just restart conversation.
@@ -280,3 +289,12 @@ def get_last_utter_action(tracker):
             pass
 
     return 'error! no last action found'
+
+class ActionRestarted(Action):
+    """ This is for restarting the chat"""
+
+    def name(self):
+        return "action_chat_restart"
+
+    def run(self, dispatcher, tracker, domain):
+        return [Restarted()]

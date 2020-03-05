@@ -3,6 +3,7 @@
 actions:
 - action_default_ask_affirmation
 - action_default_fallback
+- action_chat_restart
 - action_nutrition_information
 - action_sick_child
 - action_breastfeeding_frequency
@@ -90,6 +91,9 @@ slots:
   years:
     auto_fill: false
     type: unfeaturized
+  iteration_num:
+    type: text
+    initial_value: "0"
 templates:
   utter_default:
   - text: Sorry, I didn't get that. Could you please rephrase?

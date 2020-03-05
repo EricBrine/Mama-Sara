@@ -2,9 +2,9 @@
   "config": "99914b932bd37a50b983c5e7c90ae93b",
   "core-config": "51f4acfb3bcf34d66a250a46d3cd8f4b",
   "nlu-config": "a27c0cea7d1b1c2eee352de5c555e179",
-  "domain": 1276296459565506401,
+  "domain": 1468750351741324558,
   "messages": 1670954091652627463,
-  "stories": 425260147553562399,
-  "trained_at": 1583433371.175545,
+  "stories": 1197355013592585823,
+  "trained_at": 1583438892.1344,
   "version": "1.3.9"
 }
