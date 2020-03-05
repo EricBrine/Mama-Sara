@@ -9,7 +9,7 @@
   - utter_greet
   - utter_intro
 
-## interactive_story_2 - Age needs to be asked for
+## nutrition_information - Age needs to be asked for
 * nutrition_information
     - nutrition_diagnostic_info_form
     - form{"name": "nutrition_diagnostic_info_form"}
@@ -32,4 +32,7 @@
     - slot{"requested_slot": null}
     - action_sick_child
 
-
+## how often to breastfeed
+* how_often_to_breastfeed
+  - action_breastfeeding_frequency
+  - utter_more_information

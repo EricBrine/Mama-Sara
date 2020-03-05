@@ -5,6 +5,8 @@ actions:
 - action_default_fallback
 - action_nutrition_information
 - action_sick_child
+- action_breastfeeding_frequency
+- utter_more_information
 - utter_did_that_help
 - utter_goodbye
 - utter_greet
@@ -35,6 +37,7 @@ intents:
 - supply_days_sick
 - affirm
 - nutrition_information
+- how_often_to_breastfeed
 - thanks
 - stop
 - greet
@@ -124,3 +127,5 @@ templates:
   - text: Is your child nauseous?
   utter_ask_symptom:
   - text: What symptoms is your child experiencing?
+  utter_more_information:
+  - text: Would you like to hear more information?

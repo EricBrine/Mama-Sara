@@ -190,6 +190,22 @@ class IllnessDiagnosticInfoForm(FormAction):
         return []
 
 
+# Responds with treatment info based on diagnostic info for ill child.
+class ActionBreastfeedingFrequency(Action):
+    def name(self):
+        return "action_breastfeeding_frequency"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        return_message = responses["breastfeeding_frequency"][0]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+        return [Restarted()]
+
+
 # Part of two-stage fallback policy. Currently will just restart conversation.
 # Working on improving fallback response.
 class ActionDefaultAskAffirmation(Action):

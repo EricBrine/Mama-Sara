@@ -1,6 +1,7 @@
 %YAML 1.1
 ---
 actions:
+- action_breastfeeding_frequency
 - action_default_ask_affirmation
 - action_default_fallback
 - action_nutrition_information
@@ -16,6 +17,7 @@ actions:
 - utter_happy
 - utter_headache
 - utter_intro
+- utter_more_information
 - utter_supply_age
 - utter_supply_days_sick
 config:
@@ -26,6 +28,7 @@ entities:
 - months_old
 - nausea
 - sore_throat
+- symptom
 - years
 forms:
 - illness_diagnostic_info_form
@@ -44,6 +47,9 @@ intents:
     ignore_entities: []
     use_entities: true
 - nutrition_information:
+    ignore_entities: []
+    use_entities: true
+- how_often_to_breastfeed:
     ignore_entities: []
     use_entities: true
 - thanks:
@@ -125,6 +131,10 @@ slots:
     auto_fill: false
     initial_value: null
     type: rasa.core.slots.UnfeaturizedSlot
+  symptom:
+    auto_fill: false
+    initial_value: null
+    type: rasa.core.slots.ListSlot
   years:
     auto_fill: false
     initial_value: null
@@ -140,6 +150,8 @@ templates:
   - text: Is your child nauseous?
   utter_ask_sore_throat:
   - text: Does your child have a sore throat?
+  utter_ask_symptom:
+  - text: What symptoms is your child experiencing?
   utter_default:
   - text: Sorry, I didn't get that. Could you please rephrase?
   - text: I didn't understand, could you rephrase that?
@@ -160,6 +172,8 @@ templates:
   - text: Does your child have a headache?
   utter_intro:
   - text: Ask me a question about your child's health or nutrition
+  utter_more_information:
+  - text: Would you like to hear more information?
   utter_supply_age:
   - text: How many months old is your child?
   utter_supply_days_sick:
