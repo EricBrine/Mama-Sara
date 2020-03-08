@@ -1,3 +1,5 @@
+import json
+
 def word_to_digits(number_word, number_words={}):
     if not number_words:
         units = [
@@ -29,3 +31,8 @@ def word_to_digits(number_word, number_words={}):
             current = 0
 
     return result + current
+
+def read_responses():
+    with open("responses/responses.json", 'r') as f:
+        responses = json.load(f)
+    return responses
