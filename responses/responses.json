@@ -45,5 +45,22 @@
     "Animal-source foods are especially good for children to help them grow strong and lively",
     "Dark-green leaves and yellow colored fruits and vegetables help the child to have healthy eyes and fewer infections",
     "Children should eat vitamin A rich foods to prevent disease: including liver, eggs, dairy, fatty fish, mango, papaya, sweet potatoes, leafy vegetables, carrots and palm oil."
-  ]
+  ],
+  "health_information": {
+    "child_development": {
+      "12": [
+        "Hold your hands together and let your child pull them apart. It’s a good game! Notice how much stronger he is getting as his muscles grow.",
+        "Sing to your child and show him how to clap along to the beat. It helps his coordination skills and he’ll love this special time with you. Try to interact with your child constantly. It will help her learn to talk. It will make her happy too! Ask your caregivers, too.",
+        "Scrunch up newspaper into balls and show your child how to drop them into a cardboard box. She’ll love it and it will help her coordination.",
+        "Your child loves spending time with you. He develops by playing and interacting with people. It’s best if you don’t let him watch TV yet."
+      ],
+      "15": [
+        "Give your child wooden spoons to bang together. Show her how. It may be noisy, but it will help her to develop grip and coordination.",
+        "Your child understands a great deal of what you say, but can't talk back to you. Encourage him to learn, by talking to him.",
+        "Show your child how to turn the pages of a book. Point out pictures or make up a story to fit the pictures. This helps his language develop.",
+        "Talk and sing to your child as much as you can. This will help him learn to talk. Encourage your family members to do the same.",
+        "At mealtimes, count out spoonfuls or the vegetables on her plate. This will help her understand numbers, and prepare her for maths in school"
+      ]
+    }
+  }
 }
