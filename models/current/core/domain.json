@@ -28,6 +28,7 @@
     "slot_age_0",
     "slot_entity_extractor_0",
     "slot_entity_extractor_1",
+    "slot_fallback_0",
     "slot_feedback_value_0",
     "slot_feedback_value_1",
     "slot_iteration_num_0",

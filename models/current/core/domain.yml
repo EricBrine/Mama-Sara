@@ -110,6 +110,10 @@ slots:
     values:
     - crfentityextractor
     - spacyentityextractor
+  fallback:
+    auto_fill: true
+    initial_value: '0'
+    type: rasa.core.slots.TextSlot
   feedback_message:
     auto_fill: true
     initial_value: null

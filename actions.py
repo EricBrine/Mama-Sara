@@ -15,35 +15,6 @@ from utils import word_to_digits
 import json
 
 
-# Currently just restarts conversation when unsure of input.
-# Will need to provide more robust fallback response.
-class ActionDefaultFallback(Action):
-    def name(self) -> Text:
-        return "action_default_fallback"
-
-    def run(
-        self,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: Dict[Text, Any],
-    ) -> List["Event"]:
-
-        # Fallback caused by TwoStageFallbackPolicy
-        if (
-            len(tracker.events) >= 4
-            and tracker.events[-4].get("name") == "action_default_ask_affirmation"
-        ):
-
-            dispatcher.utter_template("utter_restart_with_button", tracker)
-
-            return [Restarted()]
-
-        # Fallback caused by Core
-        else:
-            dispatcher.utter_template("utter_default", tracker)
-            return [UserUtteranceReverted()]
-
-
 # Responds with nutrition info based on age of child derived from "months_old" entity.
 class ActionNutritionInformation(Action):
     def name(self):
@@ -316,21 +287,11 @@ class ActionFeedingForGrowth(Action):
         return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
 
 
-# Part of two-stage fallback policy. Currently will just restart conversation.
-# Working on improving fallback response.
-class ActionDefaultAskAffirmation(Action):
-    """Asks for an affirmation of the intent if NLU threshold is not met."""
-
+# Currently just restarts conversation when unsure of input.
+# Will need to provide more robust fallback response.
+class ActionDefaultFallback(Action):
     def name(self) -> Text:
-        return "action_default_ask_affirmation"
-
-    def __init__(self) -> None:
-        import pandas as pd
-
-        # NOT IMPLEMENTED. Working on a means to resolve ambiguous input.
-        self.intent_mappings = pd.read_csv("intent_description_mapping.csv")
-        self.intent_mappings.fillna("", inplace=True)
-        print("action_default_ask_affirmation")
+        return "action_default_fallback"
 
     def run(
         self,
@@ -339,40 +300,14 @@ class ActionDefaultAskAffirmation(Action):
         domain: Dict[Text, Any],
     ) -> List["Event"]:
 
-        intent_ranking = tracker.latest_message.get("intent_ranking", [])
-        if len(intent_ranking) > 0:
-            first_intent_names = intent_ranking[0].get("name", "")
-        else:
-            dispatcher.utter_message(text="let's restart.")
-            dispatcher.utter_message(text="ask me a question.")
+        fallback_stage = tracker.get_slot("fallback")
+
+        if int(fallback_stage) >= 1:
+            dispatcher.utter_message(text="Let's try again from the start.")
             return [Restarted()]
 
-        print("ONE")
-        # first_intent_names = [
-        #     intent.get("name", "")
-        #     for intent in intent_ranking
-        #     if intent.get("name", "") != "out_of_scope"
-        # ]
-
-        # message_title = "Sorry, I'm not sure I've understood " "you correctly. Do you mean..."
-        # print('TWO')
-        # print(first_intent_names)
-        # response = self.get_top_intent(first_intent_names)
-        # dispatcher.utter_message(text=message_title)
-        # print(response)
-        # dispatcher.utter_message(text=response)
-
-        message_title = "Could you repeat that?"
-        dispatcher.utter_message(text=message_title)
-
-        return [Restarted()]
-
-    def get_top_intent(self, intent: Text) -> Text:
-        utterance_query = self.intent_mappings.intent == intent
-
-        utterances = self.intent_mappings[utterance_query].name[0]
-
-        return utterances
+        dispatcher.utter_message(text="Could you please repeat that?")
+        return [UserUtteranceReverted(), SlotSet("fallback", str(int(fallback_stage) + 1))]
 
 
 # Not currently in use.
@@ -390,6 +325,7 @@ def get_last_utter_action(tracker):
             pass
 
     return 'error! no last action found'
+
 
 class ActionRestarted(Action):
     """ This is for restarting the chat"""
