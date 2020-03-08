@@ -6,6 +6,7 @@ actions:
 - action_default_ask_affirmation
 - action_default_fallback
 - action_feeding_child_for_growth
+- action_general_health
 - action_get_child_to_eat_more
 - action_how_to_know_if_child_is_growing_well
 - action_keep_child_healthy
@@ -31,12 +32,14 @@ config:
 entities:
 - days_sick
 - headache
+- health
 - months_old
 - nausea
 - sore_throat
 - symptom
 - years
 forms:
+- health_diagnostic_info_form
 - illness_diagnostic_info_form
 - nutrition_diagnostic_info_form
 intents:
@@ -53,6 +56,9 @@ intents:
     ignore_entities: []
     use_entities: true
 - nutrition_information:
+    ignore_entities: []
+    use_entities: true
+- health_information:
     ignore_entities: []
     use_entities: true
 - how_often_to_breastfeed:
@@ -110,6 +116,10 @@ slots:
     values:
     - crfentityextractor
     - spacyentityextractor
+  fallback:
+    auto_fill: true
+    initial_value: '0'
+    type: rasa.core.slots.TextSlot
   feedback_message:
     auto_fill: true
     initial_value: null
@@ -125,6 +135,10 @@ slots:
     auto_fill: false
     initial_value: null
     type: rasa.core.slots.UnfeaturizedSlot
+  health:
+    auto_fill: false
+    initial_value: null
+    type: rasa.core.slots.ListSlot
   iteration_num:
     auto_fill: true
     initial_value: '0'

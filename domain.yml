@@ -111,6 +111,9 @@ slots:
   iteration_num:
     type: text
     initial_value: "0"
+  fallback:
+    type: text
+    initial_value: "0"
 templates:
   utter_default:
   - text: Sorry, I didn't get that. Could you please rephrase?
