@@ -10,7 +10,8 @@
     "nausea": "For nausea, make sure your baby gets more rest to treat nausea.",
     "headache": "For headaches, make sure your baby gets more rest to treat the headache.",
     "vomit": "For vomitting, give fluids in small amounts. If vomitting continues, please seek a doctor.",
-    "sore throat": "For a sore throat, give plenty of fluids and feed warm soup."
+    "sore throat": "For a sore throat, give plenty of fluids and feed warm soup.",
+    "fever": "If the baby has a fever go urgently to the nearest health facility within 24 hours."
   },
   "breastfeeding_frequency": [
     "After the first week, babies continue to need to nurse when they show signs of hunger. Their caloric needs will continue to increase. By nursing your baby every time he or she signals his or her hunger, your body will increase production to meet your baby’s needs.",
@@ -25,5 +26,24 @@
     "Boil water before drinking it. Keep boiled water in clean containers and keep them covered. Scoop the water with clean scoops and dippers.",
     "Use a separate bowl for your child's food. After use, wash it straightaway with hot, soapy water. This will prevent infections.",
     "Keep your child away from anyone who coughs and sneezes. Many illnesses are spread through coughs and sneezes, including pneumonia."
+  ],
+  "get_child_to_eat_more": [
+    "Make feeding time fun. Make eye contact, smile and talk to your child. You will help her to eat and to learn at the same time.",
+    "If she is a slow eater, take your time and sit and talk to her while she eats. Eating is a new skill she has to learn. Be patient.",
+    "Is your child fussy or easily distracted while eating? Take her to a quiet place and gently encourage her to eat.",
+    "It can be tough feeding a child who refuses to eat. But be patient and keep trying. Talk to him gently as you feed him."
+  ],
+  "what_to_feed_sick_child": [
+    "When child is sick, breastfeed more frequently and/or offer additional food in small quantities. This will help the baby to fight the sickness, recover more quickly, and not lose weight.",
+    "Take time to patiently encourage your sick child to eat as his or her appetite may be decreased because of the illness."
+  ],
+  "how_to_know_if_child_is_growing_well": [
+    "Children’s growth should be monitored on a regular basis. Weight and growth should be measured monthly at your local health facility."
+  ],
+  "feeding_child_for_growth": [
+    "Children need iron to grow strong and resist diseases. Iron rich foods include eggs, red meat, green leafy vegetables, iron-fortified grains.",
+    "Animal-source foods are especially good for children to help them grow strong and lively",
+    "Dark-green leaves and yellow colored fruits and vegetables help the child to have healthy eyes and fewer infections",
+    "Children should eat vitamin A rich foods to prevent disease: including liver, eggs, dairy, fatty fish, mango, papaya, sweet potatoes, leafy vegetables, carrots and palm oil."
   ]
 }

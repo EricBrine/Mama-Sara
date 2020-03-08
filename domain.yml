@@ -8,6 +8,10 @@ actions:
 - action_sick_child
 - action_breastfeeding_frequency
 - action_keep_child_healthy
+- action_get_child_to_eat_more
+- action_what_to_feed_sick_child
+- action_how_to_know_if_child_is_growing_well
+- action_feeding_child_for_growth
 - utter_more_information
 - utter_did_that_help
 - utter_goodbye
@@ -40,6 +44,11 @@ intents:
 - affirm
 - nutrition_information
 - how_often_to_breastfeed
+- keep_child_healthy
+- get_child_to_eat_more
+- what_to_feed_sick_child
+- how_to_know_if_child_is_growing_well
+- feeding_child_for_growth
 - thanks
 - stop
 - greet

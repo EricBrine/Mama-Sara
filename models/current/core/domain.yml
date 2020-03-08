@@ -5,9 +5,13 @@ actions:
 - action_chat_restart
 - action_default_ask_affirmation
 - action_default_fallback
+- action_feeding_child_for_growth
+- action_get_child_to_eat_more
+- action_how_to_know_if_child_is_growing_well
 - action_keep_child_healthy
 - action_nutrition_information
 - action_sick_child
+- action_what_to_feed_sick_child
 - utter_ask_days_sick
 - utter_ask_headache
 - utter_ask_months_old
@@ -52,6 +56,21 @@ intents:
     ignore_entities: []
     use_entities: true
 - how_often_to_breastfeed:
+    ignore_entities: []
+    use_entities: true
+- keep_child_healthy:
+    ignore_entities: []
+    use_entities: true
+- get_child_to_eat_more:
+    ignore_entities: []
+    use_entities: true
+- what_to_feed_sick_child:
+    ignore_entities: []
+    use_entities: true
+- how_to_know_if_child_is_growing_well:
+    ignore_entities: []
+    use_entities: true
+- feeding_child_for_growth:
     ignore_entities: []
     use_entities: true
 - thanks:

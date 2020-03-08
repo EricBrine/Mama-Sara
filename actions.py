@@ -87,7 +87,7 @@ class ActionSickChild(Action):
 
         symptoms = tracker.get_slot('symptom')
         print(symptoms)
-        if (type(symptoms) == list):
+        if type(symptoms) == list:
             return_message = ""
             for symptom in symptoms:
                 return_message += responses["illness_information"][symptom] + " "
@@ -211,6 +211,7 @@ class ActionBreastfeedingFrequency(Action):
         )
         return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
 
+
 # Gives info on breastfeeding frequency
 class ActionKeepChildHealthy(Action):
     def name(self):
@@ -232,6 +233,87 @@ class ActionKeepChildHealthy(Action):
         )
         return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
 
+
+# Gives info on breastfeeding frequency
+class ActionGetChildToEatMore(Action):
+    def name(self):
+        return "action_get_child_to_eat_more"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        curr_iteration = tracker.get_slot("iteration_num")
+
+        if int(curr_iteration) >= 4:
+            dispatcher.utter_message(text="That's all I have on the subject.")
+            return [Restarted()]
+
+        return_message = responses["get_child_to_eat_more"][int(curr_iteration)]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+        return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
+
+
+# Gives info on breastfeeding frequency
+class ActionWhatToFeedSickChild(Action):
+    def name(self):
+        return "action_what_to_feed_sick_child"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        curr_iteration = tracker.get_slot("iteration_num")
+
+        if int(curr_iteration) >= 2:
+            dispatcher.utter_message(text="That's all I have on the subject.")
+            return [Restarted()]
+
+        return_message = responses["what_to_feed_sick_child"][int(curr_iteration)]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+        return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
+
+
+# Gives info on breastfeeding frequency
+class ActionHowToKnowIfChildIsGrowingWell(Action):
+    def name(self):
+        return "action_how_to_know_if_child_is_growing_well"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        return_message = responses["how_to_know_if_child_is_growing_well"][0]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+        return [Restarted()]
+
+
+# Gives info on breastfeeding frequency
+class ActionFeedingForGrowth(Action):
+    def name(self):
+        return "action_feeding_child_for_growth"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        curr_iteration = tracker.get_slot("iteration_num")
+
+        if int(curr_iteration) >= 4:
+            dispatcher.utter_message(text="That's all I have on the subject.")
+            return [Restarted()]
+
+        return_message = responses["feeding_child_for_growth"][int(curr_iteration)]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+        return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
 
 
 # Part of two-stage fallback policy. Currently will just restart conversation.

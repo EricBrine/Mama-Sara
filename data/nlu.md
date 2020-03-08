@@ -78,9 +78,12 @@
 - My child has a [cough](symptom)
 - My child is [coughing](symptom:cough)
 - My child has [nausea](symptom)
+- My child has a [fever](symptom)
+- My child is [feverish](symptom:fever)
 - My child is [nauseous](symptom:nausea)
 - My child has a [headache](symptom)
 - My child has a [headache](symptom) and a [cough](symptom)
+- My child has a [headache](symptom) and a [cough](symptom) and a [fever](symptom)
 - My child has a [headache](symptom) and is [coughing](symptom:cough)
 - [headache](symptom) and [coughing](symptom:cough)
 - My child has a [sore throat](symptom) and [vomitting](symptom:vomit)
@@ -134,6 +137,30 @@
 ## intent:keep_child_healthy
 - How do I keep my child healthy?
 - How do I stop my child from getting sick?
+
+## intent:get_child_to_eat_more
+- How do I get my child to eat more food?
+- I want my child to eat more 
+- How can I get my son to eat more food
+- How do I get my daughter to eat more
+- My child isn't eating enough, what can I do
+- My daughter is not eating enough food, what can I do
+
+## intent:what_to_feed_sick_child
+- What do I feed my child when he is sick?
+- What do I feed my child when she is sick?
+- what do i feed my sick daughter
+- what can i feed my sick son
+- my child is sick, what should i feed them
+
+## intent:how_to_know_if_child_is_growing_well
+- How do I know if my child is growing well?
+- how should my child be growing
+
+## intent:feeding_child_for_growth
+- What types of food help my child to grow well?
+- what should i feed my child to help them grow
+- what foods will help my son grow taller
 
 ## intent:thanks
 - thanks
