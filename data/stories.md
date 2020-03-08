@@ -111,3 +111,16 @@
   - utter_more_information
 * deny
   - action_chat_restart
+  
+## child development - give response based on age
+* health_information{"health": ["child_development"]}
+    - health_diagnostic_info_form
+    - form{"name": "health_diagnostic_info_form"}
+    - slot{"health": ["child_development"]}
+    - form{"name": null}
+    - slot{"requested_slot": null}
+    - action_general_health
+    - utter_more_information
+* affirm
+    - action_general_health
+    - utter_more_information

@@ -335,3 +335,72 @@ class ActionRestarted(Action):
 
     def run(self, dispatcher, tracker, domain):
         return [Restarted()]
+
+class ActionGeneralHealth(Action):
+    def name(self):
+        return "action_general_health"
+
+    def run(self, dispatcher, tracker, domain):
+        responses = read_responses()
+
+        months_old = int(word_to_digits(tracker.get_slot('months_old')))
+        curr_iteration = tracker.get_slot("iteration_num")
+        health = tracker.get_slot('health')
+
+        if int(curr_iteration) > 2:
+            dispatcher.utter_message(text="That's all I have on the subject.")
+            return [Restarted()]
+
+        if months_old < 15:
+            return_message = responses["health_information"][health]["12"][int(curr_iteration)]
+        else:
+            return_message = responses["health_information"][health]["15"][int(curr_iteration)]
+
+        dispatcher.utter_message(
+            text=return_message
+        )
+
+        return [SlotSet("iteration_num", str(int(curr_iteration) + 1))]
+
+
+class HealthDiagnosticInfoForm(FormAction):
+    """Form for resolving which response to return for a question about nutrition information"""
+
+    def name(self) -> Text:
+        """Unique identifier of the form"""
+
+        return "health_diagnostic_info_form"
+
+    @staticmethod
+    def required_slots(tracker: Tracker) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+
+        return [
+            "months_old",
+            "health"
+        ]
+
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict]]]:
+        """A dictionary to map required slots to
+            - an extracted entity
+            - intent: value pairs
+            - a whole message
+            or a list of them, where a first match will be picked"""
+
+        return {
+            "months_old": self.from_entity(entity="months_old"),
+            "health": self.from_entity(entity="health")
+        }
+
+    def submit(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+        """Define what the form has to do
+            after all required slots are filled"""
+
+        # utter submit template
+        dispatcher.utter_message(text="thank you")
+        return []

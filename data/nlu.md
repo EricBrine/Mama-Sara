@@ -162,6 +162,10 @@
 - what should i feed my child to help them grow
 - what foods will help my son grow taller
 
+## intent:health_information
+- what can i do to help my [child develop](health:child_development)
+- how can i support my [child's development](health:child_development)
+
 ## intent:thanks
 - thanks
 - thank you
